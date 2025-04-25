@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang=\"uk\">
+<html lang="uk">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕкоДок - Екологічна документація для підприємств</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4fdf9;
             color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #2ecc71;
             padding: 40px 20px;
             text-align: center;
             color: white;
@@ -32,19 +35,19 @@
             padding: 20px;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.3s ease;
         }
         .service:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
         }
         .service-details {
             display: none;
             padding-top: 10px;
         }
         footer {
-            background-color: #333;
+            background-color: #34495e;
             color: white;
             padding: 20px;
             text-align: center;
@@ -53,20 +56,32 @@
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #2ecc71;
             color: white;
             text-decoration: none;
             border-radius: 4px;
+        }
+        .social-icons img {
+            width: 30px;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+        @media (max-width: 600px) {
+            .services {
+                gap: 15px;
+            }
+            header, footer {
+                padding: 20px;
+            }
+            section {
+                padding: 30px 10px;
+            }
         }
     </style>
     <script>
         function toggleDetails(id) {
             var details = document.getElementById(id);
-            if (details.style.display === \"none\" || details.style.display === \"\") {
-                details.style.display = \"block\";
-            } else {
-                details.style.display = \"none\";
-            }
+            details.style.display = (details.style.display === "none" || details.style.display === "") ? "block" : "none";
         }
     </script>
 </head>
@@ -74,49 +89,59 @@
 
 <header>
     <h1>ЕкоДок</h1>
-    <p>Розробка екологічної документації для підприємств</p>
+    <p>Професійна розробка екологічної документації для вашого бізнесу</p>
 </header>
 
 <section>
     <h2>Наші послуги</h2>
-    <div class=\"services\">
-        <div class=\"service\" onclick=\"toggleDetails('ovd')\">
+    <div class="services">
+        <!-- Service Items (expandable details) -->
+        <div class="service" onclick="toggleDetails('ovd')">
             <h3>Оцінка впливу на довкілля (ОВД)</h3>
-            <div class=\"service-details\" id=\"ovd\">
-                <p>ОВД включає аналіз потенційних наслідків реалізації проєктів на навколишнє середовище. Ми готуємо всю необхідну документацію, проводимо консультації з громадськістю та забезпечуємо підтримку на всіх етапах процедури ОВД.</p>
+            <div class="service-details" id="ovd">
+                <p>Повна підтримка в проходженні процедури ОВД, включаючи підготовку документації, консультації та супровід.</p>
             </div>
         </div>
-        <div class=\"service\" onclick=\"toggleDetails('vukidy')\">
+        <div class="service" onclick="toggleDetails('vukidy')">
             <h3>Дозволи на викиди та відходи</h3>
-            <div class=\"service-details\" id=\"vukidy\">
-                <p>Допомагаємо підприємствам отримати дозволи на викиди забруднюючих речовин в атмосферу, а також на поводження з відходами. Виконуємо розрахунки та узгодження з контролюючими органами.</p>
+            <div class="service-details" id="vukidy">
+                <p>Комплексна допомога в отриманні дозволів, включаючи проведення необхідних розрахунків і експертиз.</p>
             </div>
         </div>
-        <div class=\"service\" onclick=\"toggleDetails('audit')\">
+        <div class="service" onclick="toggleDetails('audit')">
             <h3>Екологічний аудит</h3>
-            <div class=\"service-details\" id=\"audit\">
-                <p>Детальна оцінка дотримання екологічних стандартів, виявлення ризиків, рекомендації щодо покращення екологічної політики підприємства.</p>
+            <div class="service-details" id="audit">
+                <p>Аудит відповідності екологічному законодавству та рекомендації щодо покращення.</p>
             </div>
         </div>
-        <div class=\"service\" onclick=\"toggleDetails('vodokorystuvannya')\">
+        <div class="service" onclick="toggleDetails('vodokorystuvannya')">
             <h3>Дозвіл на спецводокористування</h3>
-            <div class=\"service-details\" id=\"vodokorystuvannya\">
-                <p>Підготовка документів для отримання дозволу на спеціальне водокористування, включаючи розрахунок норм водоспоживання.</p>
+            <div class="service-details" id="vodokorystuvannya">
+                <p>Оформлення дозволів на водокористування із врахуванням всіх нормативних вимог.</p>
             </div>
         </div>
-        <div class=\"service\" onclick=\"toggleDetails('zemli')\">
-            <h3>Документи щодо забруднення ґрунтів</h3>
-            <div class=\"service-details\" id=\"zemli\">
-                <p>Підготовка звітності та документації з контролю за станом ґрунтів, що можуть забруднюватися в результаті діяльності підприємства.</p>
+        <div class="service" onclick="toggleDetails('zemli')">
+            <h3>Контроль стану ґрунтів</h3>
+            <div class="service-details" id="zemli">
+                <p>Розробка звітності щодо моніторингу та захисту ґрунтового покриву підприємства.</p>
             </div>
         </div>
     </div>
-    <a href=\"mailto:contact@ecodoc.com.ua\" class=\"button\">Зв'язатися з нами</a>
+    <a href="mailto:contact@ecodoc.com.ua" class="button">Зв'язатися з нами</a>
 </section>
 
 <footer>
     <p>© 2025 ЕкоДок. Всі права захищені.</p>
-    <p>Телефон: +380 123 456 789 | Email: contact@ecodoc.com.ua</p>
+    <p>
+        Телефон: +380 123 456 789 | +380 987 654 321<br>
+        Email: contact@ecodoc.com.ua<br>
+        <div class="social-icons">
+            <a href="#"><img src="telegram.png" alt="Telegram"></a>
+            <a href="#"><img src="viber.png" alt="Viber"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="tiktok.png" alt="TikTok"></a>
+        </div>
+    </p>
 </footer>
 
 </body>
