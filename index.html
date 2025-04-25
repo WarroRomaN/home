@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang=\"uk\">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <title>ЕкоДок - Екологічна документація для підприємств</title>
     <style>
         body {
@@ -20,9 +20,8 @@
         }
         section {
             padding: 50px 20px;
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
-            text-align: center;
         }
         .services {
             display: flex;
@@ -34,6 +33,15 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .service:hover {
+            transform: scale(1.02);
+        }
+        .service-details {
+            display: none;
+            padding-top: 10px;
         }
         footer {
             background-color: #333;
@@ -51,6 +59,16 @@
             border-radius: 4px;
         }
     </style>
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === \"none\" || details.style.display === \"\") {
+                details.style.display = \"block\";
+            } else {
+                details.style.display = \"none\";
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -61,21 +79,39 @@
 
 <section>
     <h2>Наші послуги</h2>
-    <div class="services">
-        <div class="service">
+    <div class=\"services\">
+        <div class=\"service\" onclick=\"toggleDetails('ovd')\">
             <h3>Оцінка впливу на довкілля (ОВД)</h3>
-            <p>Повний супровід процедури ОВД з підготовкою необхідних документів.</p>
+            <div class=\"service-details\" id=\"ovd\">
+                <p>ОВД включає аналіз потенційних наслідків реалізації проєктів на навколишнє середовище. Ми готуємо всю необхідну документацію, проводимо консультації з громадськістю та забезпечуємо підтримку на всіх етапах процедури ОВД.</p>
+            </div>
         </div>
-        <div class="service">
+        <div class=\"service\" onclick=\"toggleDetails('vukidy')\">
             <h3>Дозволи на викиди та відходи</h3>
-            <p>Оформлення дозволів на викиди забруднюючих речовин та поводження з відходами.</p>
+            <div class=\"service-details\" id=\"vukidy\">
+                <p>Допомагаємо підприємствам отримати дозволи на викиди забруднюючих речовин в атмосферу, а також на поводження з відходами. Виконуємо розрахунки та узгодження з контролюючими органами.</p>
+            </div>
         </div>
-        <div class="service">
+        <div class=\"service\" onclick=\"toggleDetails('audit')\">
             <h3>Екологічний аудит</h3>
-            <p>Комплексна перевірка підприємств на відповідність екологічним стандартам.</p>
+            <div class=\"service-details\" id=\"audit\">
+                <p>Детальна оцінка дотримання екологічних стандартів, виявлення ризиків, рекомендації щодо покращення екологічної політики підприємства.</p>
+            </div>
+        </div>
+        <div class=\"service\" onclick=\"toggleDetails('vodokorystuvannya')\">
+            <h3>Дозвіл на спецводокористування</h3>
+            <div class=\"service-details\" id=\"vodokorystuvannya\">
+                <p>Підготовка документів для отримання дозволу на спеціальне водокористування, включаючи розрахунок норм водоспоживання.</p>
+            </div>
+        </div>
+        <div class=\"service\" onclick=\"toggleDetails('zemli')\">
+            <h3>Документи щодо забруднення ґрунтів</h3>
+            <div class=\"service-details\" id=\"zemli\">
+                <p>Підготовка звітності та документації з контролю за станом ґрунтів, що можуть забруднюватися в результаті діяльності підприємства.</p>
+            </div>
         </div>
     </div>
-    <a href="mailto:contact@ecodoc.com.ua" class="button">Зв'язатися з нами</a>
+    <a href=\"mailto:contact@ecodoc.com.ua\" class=\"button\">Зв'язатися з нами</a>
 </section>
 
 <footer>
